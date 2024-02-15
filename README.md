@@ -11,7 +11,7 @@ do número entrado pelo usuário, o número de dígitos dessa entrada (o tamanho
 digitos) e o sinal do número entrado.
 
 ---------------------------------------------------------------------------------------------------------------
-Interface do tipo BigNumber:
+Interface do tipo BigNumber: <br>
 void limparBuffer(void): Limpa o buffer das entradas.
 
 BigNumber scanBigNumber(void): Lê um número digitado pelo usuário e retorna uma variável do tipo BigNumber.

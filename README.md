@@ -7,7 +7,7 @@ de armazenar.
 Uma explicação de como foi representado o BigNumber:
 O nosso tipo BigNumber foi representado por um struct que armazena as seguintes propriedades:
 int *digitos, int ndigitos e char sinal. Eles representam, respectivamente, um vetor com os dígitos
-do número entrado pelo usuário, o número de dígitos numéricos dessa entrada (o tamanho do vetor
+do número entrado pelo usuário, o número de dígitos dessa entrada (o tamanho do vetor
 digitos) e o sinal do número entrado.
 
 ---------------------------------------------------------------------------------------------------------------

@@ -1,51 +1,45 @@
 Projeto realizado em conjunto com Felipe Bittar para a disciplina Programação Estruturada - UFABC
 
-Objetivo: criar um sistema capaz de realizar operações de soma, subtração e multiplicação
-com números muito grandes utilizando a linguagem C
+Objetivo: criar um programa em C capaz de realizar operações de soma, subtração e multiplicação
+com números inteiros muito grandes, de tamanhos que os tipos nativos da linguagem não são capazes
+de armazenar.
 
 Uma explicação de como foi representado o BigNumber:
+O nosso tipo BigNumber foi representado por um struct que armazena as seguintes propriedades:
+int *digitos, int ndigitos e char sinal. Eles representam, respectivamente, um vetor com os dígitos
+do número entrado pelo usuário, o número de dígitos numéricos dessa entrada (o tamanho do vetor
+digitos) e o sinal do número entrado.
 
-O nosso tipo bignumber foi representado por um struct data “BigNumber” que
-armazena as seguintes propriedades: int *digitos, int ndigitos e char sinal; Eles
-representavam, respectivamente, um vetor com os dígitos numéricos digitados na entrada
-pelo usuário, o número de dígitos numéricos dessa entrada (o tamanho do vetor digitos) e o
-sinal da entrada.
+---------------------------------------------------------------------------------------------------------------
+Interface do tipo BigNumber:
+void limparBuffer(void): Limpa o buffer das entradas.
 
-Interface pública do tipo BigNumber (assinaturas):
-
-void limparBuffer(): Limpa o buffer das entradas, removendo os ‘\n’.
-
-BigNumber scanBigNumber(): Lê uma linha de input do usuário e armazena os dados
-numa variável do tipo BigNumber que é retornada pela função.
+BigNumber scanBigNumber(void): Lê um número digitado pelo usuário e retorna uma variável do tipo BigNumber.
 
 void addZeros(BigNumber *inp, int n): Adiciona zeros em um vetor digitos de uma
-variável BigNumber até que esse vetor tenha tamanho igual a n (ex: entrada1 = 12,
-entrada2 = 1, addzeros faz com que fique 12 e 01).
+variável BigNumber inp até que esse vetor tenha tamanho igual a n (ex: digitosA = [1, 2], digitosB = [1],
 
-int tamanhoDoMaiorArray(BigNumber *inp1, BigNumber *inp2): Encontra, antes de usar
-o addZeros, qual vetor digitos de dois BigNumbers tem maior tamanho.
+addZeros(digitosB, ndigitosA) faz com que digitosB = [0, 1]).
+
+int tamanhoDoMaiorArray(BigNumber *inp1, BigNumber *inp2): Retorna o maior ndigitos entre dois BigNumber.
 
 void printArray(int *v, int n): Imprime um vetor.
 
-void inverterArray(int *arr, int tamanho): Inverte um vetor (ex: {1, 2, 3, 4} passa a ser {4,
-3, 2, 1}).
+void inverterArray(int *arr, int tamanho): Inverte um vetor.
 
-BigNumber soma(BigNumber *inp1, BigNumber *inp2): Realiza a soma entre dois
-vetores de digitos (BigNumber.digitos). O programa faz isso simulando método que fazemos
-“no papel” as contas.
+BigNumber soma(BigNumber *inp1, BigNumber *inp2): Retorna um BigNumber que é a soma entre dois
+outros BigNumber.
 
-BigNumber subtract(BigNumber *inp1, BigNumber *inp2): Realiza a subtração entre
-dois vetores de digitos (BigNumber.digitos). O programa faz isso simulando método que
-fazemos “no papel” as contas.
+BigNumber subtract(BigNumber *inp1, BigNumber *inp2): Retorna um BigNumber que é a subtração entre 
+dois outros BigNumber.
 
-BigNumber multiply(BigNumber *num1, BigNumber *num2): Realiza a multiplicação
-entre dois vetores de digitos (BigNumber.digitos). O programa faz isso simulando método
-que fazemos “no papel” as contas.
+BigNumber multiply(BigNumber *num1, BigNumber *num2): Retorna um BigNumber que é a multiplicação 
+entre dois outros BigNumber.
 
-int comparaModulo(BigNumber inp1, BigNumber inp2): Analisa qual das duas entradas
-tem maior valor em módulo.
+int comparaModulo(BigNumber inp1, BigNumber inp2): Retorna um inteiro que representa qual BigNumber
+de entrada tem maior módulo.
 
-BigNumber operationHandler(BigNumber inp1, BigNumber inp2, char signal): Analisa
-os sinais das entradas e da operação que será feita e decide como serão feitas as
-operações (Por exemplo se as entradas são: 2, -3 e -, ele faz a soma de 2 com 3, pois 2-
-(-3) = 2+3).
+BigNumber operationHandler(BigNumber inp1, BigNumber inp2, char signal): Lida com os argumentos
+recebidos de forma a chamar a função de operação adequada, retornando o BigNumber resultante.
+---------------------------------------------------------------------------------------------------------------
+

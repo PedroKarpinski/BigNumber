@@ -1,7 +1,8 @@
+#include "bignumber.h"
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "bignumber.h"
 
 BigNumber scanBigNumber() 
 {

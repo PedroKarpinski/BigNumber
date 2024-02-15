@@ -1,5 +1,6 @@
 #ifndef BIG_H
 #define BIG_H
+
 typedef struct
 {
     int *digitos;

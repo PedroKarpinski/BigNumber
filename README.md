@@ -41,5 +41,6 @@ de entrada tem maior módulo.
 
 BigNumber operationHandler(BigNumber inp1, BigNumber inp2, char signal): Lida com os argumentos
 recebidos de forma a chamar a função de operação adequada, retornando o BigNumber resultante.
+
 ---------------------------------------------------------------------------------------------------------------
 
